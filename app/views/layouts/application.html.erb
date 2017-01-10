@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sponsorship</title>
+    <%= csrf_meta_tags %>
+    <meta content='<!-- page keywords -->' name='keywords'>
+    <meta content='<!-- page description -->' name='description'>
+    <meta content='<!-- page author -->' name='author'>
+ 
+    <!-- instructions for robots -->
+    <meta content='all' name='robots'>
+ 
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+ 
+    <!-- this enables responsive features in browser -->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href='assets/images/meta_icons/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href='assets/images/meta_icons/apple-touch-icon.png' rel='apple-touch-icon-precomposed'>
+  </head>
+
+  <body class="homepage">
+
+  	
+	    <%= render 'layouts/header' %>
+
+	    <div class="container">
+	    	<% flash.each do |message_type, message| %>
+        	<div class="alert alert-<%= message_type %>"><%= message %></div>
+      		<% end %>
+	     	<%= yield %>
+	    </div>
+	    <%= render 'layouts/footer' %>
+  </div>
+
+  </body>
+</html>

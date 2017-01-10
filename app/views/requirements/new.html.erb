@@ -1,0 +1,52 @@
+<div id='main' role='main'>
+  <div id="wrapper">
+  <div id='main-content-header'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-sm-12'>
+          <h1 class='title'>
+            Create a new requirement
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <div id='main-content'>
+    <div class='container'>
+      <div class="row" style="align-items: center;">
+        <div class="col-md-3">
+                  <h2>
+                  </h2>
+          </div>
+            <div class="col-sm-6">
+              <%= form_for @requirement do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
+                <div class="form-group">
+                  <%= f.label 'Student\'s Name'%>
+                    <%= f.select :student_id, options_from_collection_for_select(@students, "id", "full_name"), {}, class: 'form-control col-sm-4' %>
+                </div>
+                <div class="form-group">
+                  <%= f.label 'Requirement type'%>
+                  <%= f.select :rtype, ['One-Time','Monthy'], {}, class: 'form-control col-sm-4' %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :cost %>
+                  <%= f.text_field :cost, class: 'form-control' %>
+
+                </div>
+                <div class="form-group">
+                  <%= f.label :description %>
+                  <%= f.text_area :description, class: 'form-control' %>
+
+                </div>
+                <%= f.submit "Submit", class: "btn btn-primary" %>
+              <% end %>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

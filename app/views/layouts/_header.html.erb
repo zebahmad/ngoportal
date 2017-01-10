@@ -1,0 +1,145 @@
+<header id="header">
+  <div class="container">
+    <nav class="navbar navbar-collapsed-sm navbar-default" id="nav" role="navigation">
+      <div class="navbar-header">
+ 
+        <!-- navigation toggler on small screens -->
+        <button class="navbar-toggle" data-target=".navbar-header-collapse" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+ 
+        <a class="navbar-brand" href="index.html">
+        <%= image_tag("sponsorship.png", size: "117x39") %>  
+        </a>
+
+      </div>
+ 
+      <!-- navigation -->
+      <div class="collapse navbar-collapse navbar-header-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+            <li class='dropdown'>
+                  <a class='dropdown-toggle' data-delay='50' data-hover='dropdown' data-toggle='dropdown' href='#'>
+                    <span>
+                      Sponsorship <i class='fa fa-angle-down'></i>
+                    </span>
+                  </a>
+                  <% if logged_in? %>
+                    <% if current_user.admin? %>
+                      
+                      <ul class='dropdown-menu' role='menu'>
+                        <li class='active dropdown-submenu'>
+                          <%= link_to "View sponsors", users_path %>
+                        </li>
+                      </ul>
+                    <%else %>
+                      <ul class='dropdown-menu' role='menu'>
+                        <li class='active dropdown-submenu'>
+                          <%= link_to "Your sponsorship", user_path %>
+                        </li>
+                        <li class='active dropdown-submenu'>
+                          <%= link_to "Sponsor a student", requirements_path %>
+                        </li>
+                      </ul>
+                    <% end %>
+                  <% else %>
+                    <ul class='dropdown-menu' role='menu'>
+                      <li class='active dropdown-submenu'>
+                        <%= link_to "Sponsor a student", requirements_path %>
+                      </li>
+                    </ul>
+                  <% end %>
+            </li>
+            <li class='dropdown'>
+                  <a class='dropdown-toggle' data-delay='50' data-hover='dropdown' data-toggle='dropdown' href='#'>
+                    <span>
+                      Students <i class='fa fa-angle-down'></i>
+                    </span>
+                  </a>
+                  <% if logged_in? %>
+                    <% if current_user.admin? %>
+                      
+                      <ul class='dropdown-menu' role='menu'>
+                        <li class='active dropdown-submenu'>
+                          <%= link_to "Create a requirement / need", new_requirement_path %>
+                        </li>
+                        <li class='active dropdown-submenu'>
+                          <%= link_to "Create a student", new_student_path %>
+                        </li>
+                        <li class='active dropdown-submenu'>
+                          <%= link_to "View students", students_path %>
+                        </li>
+                        <li class='active dropdown-submenu'>
+                          <%= link_to "View requirements", requirements_path %>
+                        </li>
+                      </ul>
+                    <%else %>
+                      <ul class='dropdown-menu' role='menu'>
+                        <li class='active dropdown-submenu'>
+                          <%= link_to "View needs / requirements", requirements_path %>
+                        </li>
+                      </ul>
+                    <% end %>
+                  <% else %>
+                    <ul class='dropdown-menu' role='menu'>
+                      <li class='active dropdown-submenu'>
+                        <%= link_to "View needs / requirements", requirements_path %>
+                      </li>
+                    </ul>
+                  <% end %>
+            </li>
+            <li class='dropdown'>
+                  <a class='dropdown-toggle' data-delay='50' data-hover='dropdown' data-toggle='dropdown' href='#'>
+                    <span>
+                      More <i class='fa fa-angle-down'></i>
+                    </span>
+                  </a>
+                  <ul class='dropdown-menu' role='menu'>
+                    <li class='active dropdown-submenu'>
+                      <a href='#'>About</a>
+                    </li>
+                    <li class=''>
+                      <a href='#'>Contact</a>
+                    </li>
+                    <li class=''>
+                      <a href='#'>Help</a>
+                    </li>
+                  </ul>
+            </li>
+            <li class='dropdown'>
+              <% if logged_in? %>
+                <a class='dropdown-toggle' data-delay='50' data-hover='dropdown' data-toggle='dropdown' href='#'>
+                    <span>
+                      Welcome, <%= current_user.name %>! <i class='fa fa-angle-down'></i>
+                    </span>
+                </a>
+                <ul class='dropdown-menu' role='menu'>
+                    <li class='active dropdown-submenu'>
+                      <%= link_to "Log out", logout_path, method: "post" %>
+                    </li>
+                    
+                </ul>
+              <% else %>
+
+                  <a data-delay='50'  href='login'>
+                    <span>
+                      Login/Sign Up
+                    </span>
+                  </a>
+              <% end %>
+
+            </li>
+          <!-- single navigation item with dropdown (docs below) -->
+ 
+          <!-- single navigation item with multilevel dropdown (docs below) -->
+ 
+        </ul>
+ 
+      </div>
+ 
+    </nav>
+  </div>
+</header>
