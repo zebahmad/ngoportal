@@ -4,4 +4,8 @@ class Requirement < ApplicationRecord
 	has_one :sponsorship_d
 
 	attr_accessor :full_name
+
+	validates :rtype, presence: true
+	validates :cost, presence: true
+	validates :description, presence: true
 end

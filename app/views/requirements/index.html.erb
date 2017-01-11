@@ -5,7 +5,7 @@
       <div class='row'>
         <div class='col-sm-12'>
           <h1 class='title'>
-            List of requirements
+            List of Open requirements
           </h1>
         </div>
       </div>
@@ -45,12 +45,16 @@
                       </thead>
                       <tbody>
                       <% student.requirements.each do |req| %>
+                      <% if !req.matched? %>
                         <tr>
                           <td><%= req.rtype %></td>
                           <td><%= req.cost %></td>
                           <td><%= req.description %></td>
-                          <td><%= link_to "Sponsor", sponsorship_ds_path, method: :post %></td>
+                          <% if !current_user.admin? %>
+                            <td><%= link_to "Sponsor", save_sponsorship_path(req_id: req.id) %></td>
+                          <% end %>
                         </tr>
+                      <%end %>
                       <% end %>  
                       </tbody>
                     </table>

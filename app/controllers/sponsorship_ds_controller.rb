@@ -7,6 +7,24 @@ class SponsorshipDsController < ApplicationController
     @sponsorship_ds = SponsorshipD.all
   end
 
+  def save
+    @req_id = params[:req_id]
+    @requirement = Requirement.find_by(id: params[:req_id])
+    @requirement.update_attributes(matched: true)
+
+    @sponsorship = SponsorshipD.new
+    @sponsorship.update_attributes(user_id: current_user.id, requirement_id: params[:req_id], amount: @requirement.cost)
+    #@sponsorship.user_id = current_user.id
+    #@sponsorship.requirement_id = @req_id
+    #@sponsorship.amount = @requirement.cost
+
+    @requirement.save!
+    @sponsorship.save!
+
+    flash[:success] = "Congratulations! You have sponsored a need!"
+    redirect_to requirements_url
+  end
+
   # GET /sponsorship_ds/1
   # GET /sponsorship_ds/1.json
   def show
