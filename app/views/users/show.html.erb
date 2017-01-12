@@ -24,9 +24,11 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>Sponsor Name </th> 
+                  <th>Sponsor's Name </th> 
                   <th>Sponsorship date </th>
                   <th>Sponsorship amount</th>
+                  <th>Student's Name</th>
+                  <th>Sponsored For</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,6 +37,8 @@
                   <td><%= @user.name %></td>
                   <td><%= sponsorship.created_at %></td>
                   <td><%= sponsorship.amount %></td>
+                  <td><%= sponsorship.requirement.student.full_name %></td>
+                  <td><%= sponsorship.requirement.description %></td>
                 </tr>
                 <% end %>
               </tbody>
