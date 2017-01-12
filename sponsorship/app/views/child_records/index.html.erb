@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Child Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Record type</th>
+      <th>Contents</th>
+      <th>Created by</th>
+      <th>Last updated by</th>
+      <th>Created on</th>
+      <th>Last updated on</th>
+      <th>Child</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @child_records.each do |child_record| %>
+      <tr>
+        <td><%= child_record.record_type %></td>
+        <td><%= child_record.contents %></td>
+        <td><%= child_record.created_by %></td>
+        <td><%= child_record.last_updated_by %></td>
+        <td><%= child_record.created_on %></td>
+        <td><%= child_record.last_updated_on %></td>
+        <td><%= child_record.child %></td>
+        <td><%= link_to 'Show', child_record %></td>
+        <td><%= link_to 'Edit', edit_child_record_path(child_record) %></td>
+        <td><%= link_to 'Destroy', child_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Child Record', new_child_record_path %>

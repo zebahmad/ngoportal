@@ -1,0 +1,1 @@
+json.partial! "child_records/child_record", child_record: @child_record

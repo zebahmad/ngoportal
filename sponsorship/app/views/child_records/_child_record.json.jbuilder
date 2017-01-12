@@ -1,0 +1,2 @@
+json.extract! child_record, :id, :record_type, :contents, :created_by, :last_updated_by, :created_on, :last_updated_on, :child_id, :created_at, :updated_at
+json.url child_record_url(child_record, format: :json)

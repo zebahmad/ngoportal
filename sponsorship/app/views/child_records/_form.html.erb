@@ -1,0 +1,52 @@
+<%= form_for(child_record) do |f| %>
+  <% if child_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(child_record.errors.count, "error") %> prohibited this child_record from being saved:</h2>
+
+      <ul>
+      <% child_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :record_type %>
+    <%= f.text_field :record_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contents %>
+    <%= f.text_field :contents %>
+  </div>
+
+  <div class="field">
+    <%= f.label :created_by %>
+    <%= f.text_field :created_by %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_updated_by %>
+    <%= f.text_field :last_updated_by %>
+  </div>
+
+  <div class="field">
+    <%= f.label :created_on %>
+    <%= f.datetime_select :created_on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_updated_on %>
+    <%= f.datetime_select :last_updated_on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :child_id %>
+    <%= f.text_field :child_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

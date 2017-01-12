@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Record type:</strong>
+  <%= @child_record.record_type %>
+</p>
+
+<p>
+  <strong>Contents:</strong>
+  <%= @child_record.contents %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @child_record.created_by %>
+</p>
+
+<p>
+  <strong>Last updated by:</strong>
+  <%= @child_record.last_updated_by %>
+</p>
+
+<p>
+  <strong>Created on:</strong>
+  <%= @child_record.created_on %>
+</p>
+
+<p>
+  <strong>Last updated on:</strong>
+  <%= @child_record.last_updated_on %>
+</p>
+
+<p>
+  <strong>Child:</strong>
+  <%= @child_record.child %>
+</p>
+
+<%= link_to 'Edit', edit_child_record_path(@child_record) %> |
+<%= link_to 'Back', child_records_path %>

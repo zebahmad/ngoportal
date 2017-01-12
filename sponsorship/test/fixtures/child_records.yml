@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  record_type: MyString
+  contents: MyString
+  created_by: MyString
+  last_updated_by: MyString
+  created_on: 2017-01-12 19:12:55
+  last_updated_on: 2017-01-12 19:12:55
+  child: one
+
+two:
+  record_type: MyString
+  contents: MyString
+  created_by: MyString
+  last_updated_by: MyString
+  created_on: 2017-01-12 19:12:55
+  last_updated_on: 2017-01-12 19:12:55
+  child: two
