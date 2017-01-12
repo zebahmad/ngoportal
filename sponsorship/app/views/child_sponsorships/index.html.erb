@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Child Sponsorships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Child</th>
+      <th>Sponsor</th>
+      <th>Sponsorship type</th>
+      <th>Start from</th>
+      <th>Valid till</th>
+      <th>Periodicity</th>
+      <th>Event</th>
+      <th>Comments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @child_sponsorships.each do |child_sponsorship| %>
+      <tr>
+        <td><%= child_sponsorship.child %></td>
+        <td><%= child_sponsorship.sponsor %></td>
+        <td><%= child_sponsorship.sponsorship_type %></td>
+        <td><%= child_sponsorship.start_from %></td>
+        <td><%= child_sponsorship.valid_till %></td>
+        <td><%= child_sponsorship.periodicity %></td>
+        <td><%= child_sponsorship.event %></td>
+        <td><%= child_sponsorship.comments %></td>
+        <td><%= link_to 'Show', child_sponsorship %></td>
+        <td><%= link_to 'Edit', edit_child_sponsorship_path(child_sponsorship) %></td>
+        <td><%= link_to 'Destroy', child_sponsorship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Child Sponsorship', new_child_sponsorship_path %>

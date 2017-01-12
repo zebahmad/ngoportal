@@ -1,0 +1,2 @@
+module ChildSponsorshipsHelper
+end

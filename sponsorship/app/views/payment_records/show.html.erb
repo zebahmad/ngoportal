@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Donor name:</strong>
+  <%= @payment_record.donor_name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @payment_record.status %>
+</p>
+
+<p>
+  <strong>Received on:</strong>
+  <%= @payment_record.received_on %>
+</p>
+
+<p>
+  <strong>Receipt:</strong>
+  <%= @payment_record.receipt %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @payment_record.comments %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @payment_record.created_by %>
+</p>
+
+<p>
+  <strong>Last updated by:</strong>
+  <%= @payment_record.last_updated_by %>
+</p>
+
+<p>
+  <strong>Created on:</strong>
+  <%= @payment_record.created_on %>
+</p>
+
+<p>
+  <strong>Last updated on:</strong>
+  <%= @payment_record.last_updated_on %>
+</p>
+
+<p>
+  <strong>Child sponsorship:</strong>
+  <%= @payment_record.child_sponsorship %>
+</p>
+
+<%= link_to 'Edit', edit_payment_record_path(@payment_record) %> |
+<%= link_to 'Back', payment_records_path %>

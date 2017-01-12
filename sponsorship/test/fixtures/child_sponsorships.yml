@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  child: one
+  sponsor: one
+  sponsorship_type: MyString
+  start_from: 2017-01-12 19:30:04
+  valid_till: 2017-01-12 19:30:04
+  periodicity: MyString
+  event: MyString
+  comments: MyText
+
+two:
+  child: two
+  sponsor: two
+  sponsorship_type: MyString
+  start_from: 2017-01-12 19:30:04
+  valid_till: 2017-01-12 19:30:04
+  periodicity: MyString
+  event: MyString
+  comments: MyText

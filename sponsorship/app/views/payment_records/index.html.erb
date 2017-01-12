@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Payment Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Donor name</th>
+      <th>Status</th>
+      <th>Received on</th>
+      <th>Receipt</th>
+      <th>Comments</th>
+      <th>Created by</th>
+      <th>Last updated by</th>
+      <th>Created on</th>
+      <th>Last updated on</th>
+      <th>Child sponsorship</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @payment_records.each do |payment_record| %>
+      <tr>
+        <td><%= payment_record.donor_name %></td>
+        <td><%= payment_record.status %></td>
+        <td><%= payment_record.received_on %></td>
+        <td><%= payment_record.receipt %></td>
+        <td><%= payment_record.comments %></td>
+        <td><%= payment_record.created_by %></td>
+        <td><%= payment_record.last_updated_by %></td>
+        <td><%= payment_record.created_on %></td>
+        <td><%= payment_record.last_updated_on %></td>
+        <td><%= payment_record.child_sponsorship %></td>
+        <td><%= link_to 'Show', payment_record %></td>
+        <td><%= link_to 'Edit', edit_payment_record_path(payment_record) %></td>
+        <td><%= link_to 'Destroy', payment_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Payment Record', new_payment_record_path %>

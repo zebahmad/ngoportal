@@ -1,0 +1,1 @@
+json.array! @child_sponsorships, partial: 'child_sponsorships/child_sponsorship', as: :child_sponsorship

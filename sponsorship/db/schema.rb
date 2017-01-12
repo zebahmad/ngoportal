@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112134255) do
+ActiveRecord::Schema.define(version: 20170112140004) do
 
   create_table "child_records", force: :cascade do |t|
     t.string   "record_type"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 20170112134255) do
     t.index ["child_id"], name: "index_child_records_on_child_id"
   end
 
+  create_table "child_sponsorships", force: :cascade do |t|
+    t.integer  "child_id"
+    t.integer  "sponsor_id"
+    t.string   "sponsorship_type"
+    t.datetime "start_from"
+    t.datetime "valid_till"
+    t.string   "periodicity"
+    t.string   "event"
+    t.text     "comments"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["child_id"], name: "index_child_sponsorships_on_child_id"
+    t.index ["sponsor_id"], name: "index_child_sponsorships_on_sponsor_id"
+  end
+
   create_table "children", force: :cascade do |t|
     t.string   "name"
     t.binary   "photograph"
@@ -33,6 +48,22 @@ ActiveRecord::Schema.define(version: 20170112134255) do
     t.datetime "last_updated_on"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "payment_records", force: :cascade do |t|
+    t.string   "donor_name"
+    t.string   "status"
+    t.datetime "received_on"
+    t.binary   "receipt"
+    t.string   "comments"
+    t.string   "created_by"
+    t.string   "last_updated_by"
+    t.datetime "created_on"
+    t.datetime "last_updated_on"
+    t.integer  "child_sponsorship_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["child_sponsorship_id"], name: "index_payment_records_on_child_sponsorship_id"
   end
 
   create_table "sponsors", force: :cascade do |t|

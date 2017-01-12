@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :child_sponsorships
+  resources :payment_records
   resources :child_records
   resources :children
   resources :sponsors

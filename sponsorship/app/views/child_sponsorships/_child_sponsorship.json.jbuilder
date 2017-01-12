@@ -1,0 +1,2 @@
+json.extract! child_sponsorship, :id, :child_id, :sponsor_id, :sponsorship_type, :start_from, :valid_till, :periodicity, :event, :comments, :created_at, :updated_at
+json.url child_sponsorship_url(child_sponsorship, format: :json)

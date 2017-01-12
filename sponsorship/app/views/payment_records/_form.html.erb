@@ -1,0 +1,67 @@
+<%= form_for(payment_record) do |f| %>
+  <% if payment_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(payment_record.errors.count, "error") %> prohibited this payment_record from being saved:</h2>
+
+      <ul>
+      <% payment_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :donor_name %>
+    <%= f.text_field :donor_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :received_on %>
+    <%= f.datetime_select :received_on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :receipt %>
+    <%= f.text_field :receipt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comments %>
+    <%= f.text_field :comments %>
+  </div>
+
+  <div class="field">
+    <%= f.label :created_by %>
+    <%= f.text_field :created_by %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_updated_by %>
+    <%= f.text_field :last_updated_by %>
+  </div>
+
+  <div class="field">
+    <%= f.label :created_on %>
+    <%= f.datetime_select :created_on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_updated_on %>
+    <%= f.datetime_select :last_updated_on %>
+  </div>
+
+  <div class="field">
+    <%= f.label :child_sponsorship_id %>
+    <%= f.text_field :child_sponsorship_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

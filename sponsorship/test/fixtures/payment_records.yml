@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  donor_name: MyString
+  status: MyString
+  received_on: 2017-01-12 19:25:29
+  receipt: 
+  comments: MyString
+  created_by: MyString
+  last_updated_by: MyString
+  created_on: 2017-01-12 19:25:29
+  last_updated_on: 2017-01-12 19:25:29
+  child_sponsorship: one
+
+two:
+  donor_name: MyString
+  status: MyString
+  received_on: 2017-01-12 19:25:29
+  receipt: 
+  comments: MyString
+  created_by: MyString
+  last_updated_by: MyString
+  created_on: 2017-01-12 19:25:29
+  last_updated_on: 2017-01-12 19:25:29
+  child_sponsorship: two

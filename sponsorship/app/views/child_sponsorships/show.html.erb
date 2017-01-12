@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Child:</strong>
+  <%= @child_sponsorship.child %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @child_sponsorship.sponsor %>
+</p>
+
+<p>
+  <strong>Sponsorship type:</strong>
+  <%= @child_sponsorship.sponsorship_type %>
+</p>
+
+<p>
+  <strong>Start from:</strong>
+  <%= @child_sponsorship.start_from %>
+</p>
+
+<p>
+  <strong>Valid till:</strong>
+  <%= @child_sponsorship.valid_till %>
+</p>
+
+<p>
+  <strong>Periodicity:</strong>
+  <%= @child_sponsorship.periodicity %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @child_sponsorship.event %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @child_sponsorship.comments %>
+</p>
+
+<%= link_to 'Edit', edit_child_sponsorship_path(@child_sponsorship) %> |
+<%= link_to 'Back', child_sponsorships_path %>

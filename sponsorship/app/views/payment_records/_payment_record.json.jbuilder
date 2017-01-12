@@ -1,0 +1,2 @@
+json.extract! payment_record, :id, :donor_name, :status, :received_on, :receipt, :comments, :created_by, :last_updated_by, :created_on, :last_updated_on, :child_sponsorship_id, :created_at, :updated_at
+json.url payment_record_url(payment_record, format: :json)
