@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @child.name %>
+</p>
+
+<p>
+  <strong>Photograph:</strong>
+  <%= @child.photograph %>
+</p>
+
+<p>
+  <strong>Enrolled on:</strong>
+  <%= @child.enrolled_on %>
+</p>
+
+<p>
+  <strong>Created on:</strong>
+  <%= @child.created_on %>
+</p>
+
+<p>
+  <strong>Last updated on:</strong>
+  <%= @child.last_updated_on %>
+</p>
+
+<%= link_to 'Edit', edit_child_path(@child) %> |
+<%= link_to 'Back', children_path %>

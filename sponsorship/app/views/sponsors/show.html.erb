@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sponsor.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @sponsor.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @sponsor.phone %>
+</p>
+
+<p>
+  <strong>Referred by:</strong>
+  <%= @sponsor.referred_by %>
+</p>
+
+<p>
+  <strong>Preferred communication:</strong>
+  <%= @sponsor.preferred_communication %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @sponsor.comments %>
+</p>
+
+<p>
+  <strong>Created on:</strong>
+  <%= @sponsor.created_on %>
+</p>
+
+<p>
+  <strong>Last updated on:</strong>
+  <%= @sponsor.last_updated_on %>
+</p>
+
+<%= link_to 'Edit', edit_sponsor_path(@sponsor) %> |
+<%= link_to 'Back', sponsors_path %>
