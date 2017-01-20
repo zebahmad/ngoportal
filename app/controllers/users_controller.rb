@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       @users = User.search(params[:q]).records
     end
   end
+  
 
   # GET /users/1
   # GET /users/1.json
