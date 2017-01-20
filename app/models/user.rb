@@ -1,4 +1,8 @@
+require 'elasticsearch/model'
 class User < ApplicationRecord
+	include Elasticsearch::Model
+  	include Elasticsearch::Model::Callbacks
+
 	has_many :requirements
 	has_many :students, through: :requirements
 	has_many :sponsorship_ds
@@ -13,6 +17,26 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+
+
+  def self.search(query)
+  	__elasticsearch__.search(
+    {
+      query: {
+        multi_match: {
+          query: query,
+          fields: ['name']
+        }
+      }
+    }
+  )
+  end
+
+  settings index: { number_of_shards: 1 } do
+  mappings dynamic: 'false' do
+    indexes :name, analyzer: 'english'
+  end
+  end
 
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -56,5 +80,16 @@ class User < ApplicationRecord
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
-    
+
 end
+
+# Delete the previous index in Elasticsearch
+User.__elasticsearch__.client.indices.delete index: User.index_name rescue nil
+
+# Create the new index with the new mapping
+User.__elasticsearch__.client.indices.create \
+  index: User.index_name,
+  body: { settings: User.settings.to_hash, mappings: User.mappings.to_hash }
+
+# Index all records from the DB to Elasticsearch
+User.import

@@ -1,0 +1,31 @@
+<h1>Sponsorship Portal</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>
+Below are the list of open requirements. 
+
+<table class="table">
+	<thead>
+	<tr>
+		<th> Requirement-Type </th>
+		<th> Description </th>
+		<th> Cost </th>
+	</tr>
+	</thead>
+	<tbody>
+	<% @requirements.each do |r| %>
+	<tr>
+		<td> <%= r.rtype %> </td>
+		<td> <%= r.description %> </td>
+		<td> <%= r.cost %> </td>
+	</tr>
+	</tbody>
+	<% end %>
+
+</table>
+<br><br>
+To sponsor, please visit the <a href="/"> portal.  </a>
+
+Thanks!
+</p>

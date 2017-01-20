@@ -7,15 +7,20 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.where(activated: true, admin: false).paginate(page: params[:page]) 
+    if params[:q].nil? || params[:q].empty?
+      @users = User.where(activated: true, admin: false)
+    else
+      @users = User.search(params[:q]).records
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
-    @sponsorship = @user.sponsorship_ds
-    redirect_to root_url and return unless @user.activated?
+    if params[:q].nil?
+      @user = User.eager_load(:sponsorship_ds).where(id: params[:id]).first
+      redirect_to root_url and return unless @user.activated?
+    end
   end
 
   # GET /users/new

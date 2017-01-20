@@ -5,7 +5,7 @@
       <div class='row'>
         <div class='col-sm-12'>
           <h1 class='title'>
-            List of sponsors
+            List of sponsorships
           </h1>
         </div>
       </div>
@@ -15,8 +15,10 @@
   
   <div id='main-content'>
     <div class='container'>
+
       <div class="row" style="align-items: center;">
         <div class="col-md-3">
+       
                   <h2>
                   </h2>
           </div>
@@ -32,17 +34,28 @@
                 </tr>
               </thead>
               <tbody>
-                <% @sponsorship.each do |sponsorship| %>
-                <tr>
-                  <td><%= @user.name %></td>
-                  <td><%= sponsorship.created_at %></td>
-                  <td><%= sponsorship.amount %></td>
-                  <td><%= sponsorship.requirement.student.full_name %></td>
-                  <td><%= sponsorship.requirement.description %></td>
-                </tr>
+                <% if @user.sponsorship_ds.count > 0 %>
+                  <% @user.sponsorship_ds.eager_load(:requirement).each do |sponsorship| %>
+                  <% req = sponsorship.requirement %>
+                  <% student = sponsorship.requirement.student %>
+                  <tr>
+                    <td><%= @user.name %></td>
+                    <td><%= l sponsorship.created_at, format: :short %></td>
+                    <td><%= sponsorship.amount %></td>
+                    <td><%= student.full_name %></td>
+                    <td><%= req.description %></td>
+                  </tr>
+
+                  <% end %>
+
+                  </tbody>
+                  </table>
+                <% else %>
+                  </tbody>
+                  </table>
+                  <%= t '.message' %>
                 <% end %>
-              </tbody>
-            </table>
+              
               
               
           </div>

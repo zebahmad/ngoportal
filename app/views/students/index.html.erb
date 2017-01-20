@@ -30,7 +30,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @students.each do |student| %>
+                <% @students.eager_load(:requirements).each do |student| %>
                 <tr>
                   <td><%= student.full_name %></td>
                   <td><%= student.grade %></td>

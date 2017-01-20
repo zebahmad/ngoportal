@@ -1,0 +1,18 @@
+<h1>Requirements Search</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go", name: nil %>
+  </p>
+<% end %>
+<ul>
+  <% @requirements.each do |requirement| %>
+    <li>
+      <h3>
+       <%= requirement.description %>
+      </h3>
+    </li>
+  <% end %>
+</ul>

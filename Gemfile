@@ -16,6 +16,14 @@ gem 'carrierwave',             '0.11.2'
 gem 'will_paginate',           '3.1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+
+gem 'resque'
+gem 'resque-scheduler'
+gem 'sinatra', '>= 2.0.0.beta2'
+
+gem 'elasticsearch-model' 
+gem 'elasticsearch-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

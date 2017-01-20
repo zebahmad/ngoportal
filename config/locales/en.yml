@@ -21,3 +21,16 @@
 
 en:
   hello: "Hello world"
+  time:
+    formats:
+      short: "%d/%m/%Y %H:%M"
+  users:
+    show:
+      message: "No sponsorships yet!"
+  activerecord:
+    errors:
+      models:
+        student:
+          attributes:
+            dob:
+              invalid: "is invalid. Please follow DD-MM-YYYY format"
