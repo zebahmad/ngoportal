@@ -1,0 +1,1 @@
+json.array! @child_records, partial: 'child_records/child_record', as: :child_record

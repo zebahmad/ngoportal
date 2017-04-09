@@ -1,0 +1,17 @@
+<%= form_for(child_sponsorship) do |f| %>
+  <% if child_sponsorship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(child_sponsorship.errors.count, "error") %> prohibited this child_sponsorship from being saved:</h2>
+
+      <ul>
+      <% child_sponsorship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

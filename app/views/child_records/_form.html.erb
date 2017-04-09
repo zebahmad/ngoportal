@@ -1,0 +1,17 @@
+<%= form_for(child_record) do |f| %>
+  <% if child_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(child_record.errors.count, "error") %> prohibited this child_record from being saved:</h2>
+
+      <ul>
+      <% child_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

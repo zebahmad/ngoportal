@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse navbar-header-collapse">
         <ul class="nav navbar-nav navbar-right">
           
-            <li class='dropdown'>
+            <!--<li class='dropdown'>
                   <a class='dropdown-toggle' data-delay='50' data-hover='dropdown' data-toggle='dropdown' href='#'>
                     <span>
                       Sponsorship <i class='fa fa-angle-down'></i>
@@ -52,11 +52,11 @@
                       </li>
                     </ul>
                   <% end %>
-            </li>
+            </li>-->
             <li class='dropdown'>
                   <a class='dropdown-toggle' data-delay='50' data-hover='dropdown' data-toggle='dropdown' href='#'>
                     <span>
-                      Students <i class='fa fa-angle-down'></i>
+                      Menu <i class='fa fa-angle-down'></i>
                     </span>
                   </a>
                   <% if logged_in? %>
@@ -64,31 +64,20 @@
                       
                       <ul class='dropdown-menu' role='menu'>
                         <li class='active dropdown-submenu'>
-                          <%= link_to "Create a requirement / need", new_requirement_path %>
+                          <%= link_to "Home Updates", root_path %>
                         </li>
                         <li class='active dropdown-submenu'>
-                          <%= link_to "Create a student", new_student_path %>
+                          <%= link_to "Children", children_path %>
                         </li>
                         <li class='active dropdown-submenu'>
-                          <%= link_to "View students", students_path %>
+                          <%= link_to "Sponsorships / Donations", child_sponsorships_path %>
                         </li>
                         <li class='active dropdown-submenu'>
-                          <%= link_to "View requirements", requirements_path %>
-                        </li>
-                      </ul>
-                    <%else %>
-                      <ul class='dropdown-menu' role='menu'>
-                        <li class='active dropdown-submenu'>
-                          <%= link_to "View needs / requirements", requirements_path %>
+                          <%= link_to "View pending action", root_path %>
                         </li>
                       </ul>
                     <% end %>
-                  <% else %>
-                    <ul class='dropdown-menu' role='menu'>
-                      <li class='active dropdown-submenu'>
-                        <%= link_to "View needs / requirements", requirements_path %>
-                      </li>
-                    </ul>
+                  
                   <% end %>
             </li>
             <li class='dropdown'>

@@ -1,10 +1,15 @@
 require 'resque/server'
 Rails.application.routes.draw do
+  resources :child_records
+  resources :payment_records
+  resources :sponsors
+  resources :children
   resources :accountactivations, only: [:edit]
   resources :users
   resources :sponsorship_ds
   resources :students
   resources :requirements
+  resources :child_sponsorships
 
 
   root "users#home"

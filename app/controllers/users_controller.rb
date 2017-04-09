@@ -38,9 +38,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.admin = true
+    @user.activated = true
     if @user.save
-      @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
+      #@user.send_activation_email
+      #flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "Welcome #{@user.name}! Please login once using your credentials! "
       redirect_to root_url
     else
       render 'new'

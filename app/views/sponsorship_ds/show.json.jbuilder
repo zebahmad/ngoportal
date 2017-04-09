@@ -1,1 +1,0 @@
-json.partial! "sponsorship_ds/sponsorship_d", sponsorship_d: @sponsorship_d

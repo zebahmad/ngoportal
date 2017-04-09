@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Child Sponsorships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @child_sponsorships.each do |child_sponsorship| %>
+      <tr>
+        <td><%= link_to 'Show', child_sponsorship %></td>
+        <td><%= link_to 'Edit', edit_child_sponsorship_path(child_sponsorship) %></td>
+        <td><%= link_to 'Destroy', child_sponsorship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Child Sponsorship', new_child_sponsorship_path %>

@@ -10,7 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110080238) do
+ActiveRecord::Schema.define(version: 20170409044329) do
+
+  create_table "child_records", force: :cascade do |t|
+    t.string   "record_type"
+    t.string   "contents"
+    t.string   "created_by"
+    t.string   "last_updated_by"
+    t.integer  "child_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["child_id"], name: "index_child_records_on_child_id"
+  end
+
+  create_table "child_sponsorships", force: :cascade do |t|
+    t.integer  "child_id"
+    t.integer  "sponsor_id"
+    t.string   "sponsorship_type"
+    t.datetime "start_from"
+    t.datetime "valid_till"
+    t.string   "periodicity"
+    t.string   "event"
+    t.text     "comments"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["child_id"], name: "index_child_sponsorships_on_child_id"
+    t.index ["sponsor_id"], name: "index_child_sponsorships_on_sponsor_id"
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.string   "name"
+    t.binary   "photograph"
+    t.datetime "enrolled_on"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "payment_records", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "received_on"
+    t.binary   "receipt"
+    t.string   "comments"
+    t.string   "created_by"
+    t.string   "last_updated_by"
+    t.integer  "child_sponsorship_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["child_sponsorship_id"], name: "index_payment_records_on_child_sponsorship_id"
+  end
 
   create_table "requirements", force: :cascade do |t|
     t.string   "rtype"
@@ -23,6 +70,17 @@ ActiveRecord::Schema.define(version: 20170110080238) do
     t.datetime "updated_at",                  null: false
     t.index ["student_id"], name: "index_requirements_on_student_id"
     t.index ["user_id"], name: "index_requirements_on_user_id"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "referred_by"
+    t.string   "preferred_communication"
+    t.string   "comments"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "sponsorship_ds", force: :cascade do |t|

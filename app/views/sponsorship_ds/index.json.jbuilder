@@ -1,1 +1,0 @@
-json.array! @sponsorship_ds, partial: 'sponsorship_ds/sponsorship_d', as: :sponsorship_d
